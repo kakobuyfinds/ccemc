@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#672c3c">
+  <title>KameyMall spreadsheet: guida a taglie, QC e categorie</title>
+  <meta name="description" content="Esplora KameyMall spreadsheet: categorie moda, consigli sulle taglie, lettura delle foto QC e pianificazione dei costi prima di scegliere.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="KameyMall spreadsheet — Scegli con criterio">
+  <meta property="og:description" content="Una guida indipendente per confrontare scarpe, abbigliamento e accessori: misure, varianti, foto QC e budget di consegna.">
+  <meta property="og:image" content="https://si.geilicdn.com/open1648936853-1234478995-27fe00000193e88e572c0a232357_900_900.jpg">
+  <meta property="og:image:alt" content="Immagine di catalogo di sneakers Nike Air Force 1 bianche con Swoosh verde">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KameyMall spreadsheet — Scegli con criterio">
+  <meta name="twitter:description" content="Categorie moda e consigli pratici per verificare taglie, foto QC e costi complessivi.">
+  <meta name="twitter:image" content="https://si.geilicdn.com/open1648936853-1234478995-27fe00000193e88e572c0a232357_900_900.jpg">
+  <link rel="preconnect" href="https://si.geilicdn.com" crossorigin>
+  <link rel="preload" as="image" href="https://si.geilicdn.com/open1648936853-1234478995-27fe00000193e88e572c0a232357_900_900.jpg" fetchpriority="high">
+
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --white: #fffefa;
+      --ink: #292925;
+      --muted: #65635b;
+      --wine: #672c3c;
+      --line: #d9d3c7;
+      --sage: #e3e8dc;
+      --rose: #eedee0;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.7; }
+    a { color: inherit; text-underline-offset: .22em; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--wine); outline-offset: 5px; }
+    a:hover { color: var(--wine); }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; line-height: 1.1; }
+    h1 { font-size: clamp(2.65rem, 5.6vw, 5rem); letter-spacing: -.045em; }
+    h2 { font-size: clamp(2rem, 3.7vw, 3.3rem); letter-spacing: -.025em; }
+    h3 { font-size: 1.13rem; line-height: 1.4; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow { font-size: .73rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; color: var(--wine); }
+    .masthead { border-bottom: 1px solid var(--line); }
+    .masthead .wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-weight: 800; font-size: clamp(1.1rem, 3.8vw, 1.45rem); letter-spacing: -.055em; text-decoration: none; white-space: nowrap; }
+    .edition { font-size: .76rem; color: var(--muted); text-align: right; }
+    .categories { padding: 25px 0 28px; border-bottom: 1px solid var(--line); }
+    .category-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; margin-bottom: 15px; }
+    .category-heading h2 { font: 700 .8rem var(--sans); letter-spacing: .1em; text-transform: uppercase; }
+    .category-heading p { font-size: .77rem; color: var(--muted); }
+    .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .category-grid a { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 11px 13px; background: var(--white); border: 1px solid var(--line); text-decoration: none; font-size: .83rem; line-height: 1.35; }
+    .category-grid a::after { content: "↗"; color: var(--wine); flex-shrink: 0; }
+    .category-grid a:hover { background: var(--rose); border-color: var(--wine); }
+    .hero { display: grid; grid-template-columns: 1.08fr 1fr; gap: 50px; align-items: center; padding: 54px 0; }
+    .hero h1 { margin: 18px 0 23px; }
+    .hero h1 span { display: block; font-style: italic; color: var(--wine); margin-top: 10px; }
+    .hero .intro { max-width: 550px; font-size: 1.04rem; color: var(--muted); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 49px; padding: 11px 21px; margin-top: 25px; background: var(--wine); color: white; text-decoration: none; font-weight: 650; font-size: .9rem; }
+    .button:hover { background: #48212c; color: white; }
+    .micro { font-size: .77rem; color: var(--muted); margin-top: 14px; }
+    .hero-image { background: #e8e5de; border: 1px solid var(--line); }
+    .hero-image img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+    .hero-image figcaption { padding: 13px 17px; background: var(--white); border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+    .answer { display: grid; grid-template-columns: .7fr 1.6fr; gap: 40px; padding: 32px; background: var(--sage); }
+    .answer h2 { font-size: 1.75rem; }
+    .answer p { font-size: .96rem; }
+    .section { padding: 67px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 29px; }
+    .section-head .eyebrow { margin-bottom: 10px; }
+    .section-head > p { max-width: 365px; font-size: .9rem; color: var(--muted); }
+    .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+    .look { min-width: 0; }
+    .look img { width: 100%; aspect-ratio: 1; object-fit: contain; background: white; border: 1px solid var(--line); }
+    .look figcaption { padding-top: 13px; }
+    .look h3 { font-size: .94rem; }
+    .look p { color: var(--muted); font-size: .81rem; margin-top: 6px; }
+    .image-note { border-left: 3px solid var(--wine); padding-left: 15px; font-size: .78rem; color: var(--muted); margin-top: 26px; max-width: 880px; }
+    .journal { border-block: 1px solid var(--line); }
+    .article-row { display: grid; grid-template-columns: 65px 1fr 1.05fr; gap: 28px; padding: 33px 0; border-bottom: 1px solid var(--line); }
+    .article-row:last-child { border-bottom: 0; }
+    .number { font: italic 2rem var(--serif); color: var(--wine); }
+    .article-row h3 { font: 400 1.65rem/1.22 var(--serif); margin: 7px 0 15px; }
+    .article-row p { font-size: .91rem; color: var(--muted); }
+    .article-row ul { margin: 0; padding-left: 20px; font-size: .89rem; }
+    .article-row li + li { margin-top: 8px; }
+    .spread { display: grid; grid-template-columns: 1.2fr .8fr; gap: 45px; }
+    .spread h2 { margin-top: 10px; }
+    .spread p { color: var(--muted); font-size: .94rem; margin-top: 20px; }
+    .table-scroll { overflow-x: auto; margin-top: 25px; }
+    table { border-collapse: collapse; width: 100%; font-size: .86rem; }
+    th, td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--wine); font-size: .74rem; text-transform: uppercase; letter-spacing: .04em; }
+    .budget { background: var(--wine); padding: 30px; color: white; align-self: start; }
+    .budget h3 { font: 400 1.9rem/1.2 var(--serif); }
+    .budget p { color: #f0e4e8; }
+    .budget dl { margin: 24px 0 0; }
+    .budget dt { font-weight: 700; margin-top: 17px; font-size: .88rem; }
+    .budget dd { margin: 4px 0 0; font-size: .86rem; color: #f0e4e8; }
+    .faq { padding-top: 0; }
+    .faq-grid { display: grid; grid-template-columns: .65fr 1.35fr; gap: 55px; }
+    .faq h2 { margin: 12px 0 20px; }
+    .faq-lead { color: var(--muted); font-size: .9rem; }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; padding: 18px 7px 18px 0; font-weight: 650; font-size: .95rem; }
+    details p { padding: 0 20px 21px 0; color: var(--muted); font-size: .9rem; }
+    .closing { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 35px; background: var(--rose); margin-bottom: 50px; }
+    .closing h2 { font-size: 2rem; }
+    .closing p { font-size: .88rem; margin-top: 8px; }
+    .closing .button { margin: 0; flex-shrink: 0; }
+    footer { border-top: 1px solid var(--line); padding: 27px 0 35px; font-size: .77rem; color: var(--muted); }
+    footer p + p { margin-top: 10px; }
+    @media (max-width: 1000px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+      .hero { gap: 30px; }
+      .category-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 30px); }
+      .masthead .wrap { min-height: 70px; gap: 10px; }
+      .edition { font-size: .65rem; }
+      .category-heading { display: block; }
+      .category-heading p { margin-top: 7px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { grid-template-columns: 1fr; padding: 34px 0; gap: 28px; }
+      .hero-image { max-width: 480px; width: 100%; margin-inline: auto; }
+      .answer { grid-template-columns: 1fr; gap: 16px; padding: 25px; }
+      .section { padding: 43px 0; }
+      .section-head { display: block; }
+      .section-head > p { margin-top: 17px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); gap: 22px 12px; }
+      .article-row { grid-template-columns: 35px 1fr; gap: 16px; padding: 26px 0; }
+      .article-row ul { grid-column: 2; }
+      .spread, .faq-grid { grid-template-columns: 1fr; gap: 30px; }
+      .faq { padding-top: 0; }
+      .closing { display: block; padding: 27px; margin-bottom: 35px; }
+      .closing .button { margin-top: 20px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .button, .category-grid a { transition: background-color .15s ease, border-color .15s ease; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "KameyMall spreadsheet: guida a taglie, QC e categorie",
+        "description": "Guida indipendente in italiano per organizzare la ricerca di scarpe, abbigliamento e accessori, verificare le misure e pianificare i costi.",
+        "inLanguage": "it",
+        "about": {
+          "@type": "Thing",
+          "name": "KameyMall spreadsheet"
+        }
+      },
+      {
+        "@type": "Article",
+        "headline": "Dalla foto alla scelta: tre controlli prima di ordinare",
+        "inLanguage": "it",
+        "description": "Consigli per confrontare la lunghezza del piede, le misure dei capi, le varianti e i dettagli visibili nelle foto QC.",
+        "articleBody": "Per le scarpe confronta la lunghezza del piede in centimetri con la tabella del modello e verifica le indicazioni sulla calzata. Per felpe e giacche misura un capo che indossi già: petto, lunghezza, spalle e maniche. Nelle foto QC confronta articolo, colore, taglia, quantità e condizioni visibili. Le immagini non dimostrano da sole autenticità, composizione o durata."
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "it",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Che cos'è una KameyMall spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "È una raccolta organizzata di riferimenti e collegamenti utili alla ricerca di prodotti. Aiuta a confrontare categorie e dettagli, ma ogni informazione va verificata sulla scheda aggiornata prima di ordinare."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dove portano i collegamenti di questa pagina?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le dieci categorie aprono le rispettive sezioni di hipobuyfind.com. Gli altri collegamenti aprono https://www.hipobuyfind.com. Questa pagina non offre un accesso diretto al conto KameyMall."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come scelgo la taglia di scarpe e abbigliamento?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Per le scarpe misura il piede in centimetri e consulta la tabella specifica del modello. Per i capi confronta petto, lunghezza, spalle e maniche con un indumento che ti veste bene, verificando come sono state prese le misure."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le foto QC garantiscono l'autenticità?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Le foto QC aiutano a controllare variante, quantità e difetti visibili. Non certificano da sole autenticità, composizione dei materiali, sicurezza o durata del prodotto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Il prezzo dell'articolo comprende la consegna in Italia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non darlo per scontato. Verifica separatamente prezzo della variante, trasporto interno, eventuali commissioni, imballaggio, spedizione internazionale e imposte applicabili. Usa un preventivo relativo al tuo pacco e alla destinazione."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Questa guida è affiliata a KameyMall o ai marchi mostrati?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. È una guida indipendente e non rappresenta KameyMall, Nike, Louis Vuitton, Gucci, Hermès o Dior. I nomi identificano riferimenti di ricerca; le immagini di catalogo non costituiscono certificazioni di autenticità."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/ccemc/">
+</head>
+
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <a class="logo" href="https://www.hipobuyfind.com" aria-label="Apri hipobuyfind.com">hipobuyfind.com</a>
+      <p class="edition">Taccuino di ricerca moda<br>Edizione italiana · Guida indipendente</p>
+    </div>
+  </header>
+
+  <main>
+    <nav class="categories" aria-label="Categorie su HipobuyFind">
+      <div class="wrap">
+        <div class="category-heading">
+          <h2>Comincia dalla categoria</h2>
+          <p>Collegamenti alle raccolte di hipobuyfind.com</p>
+        </div>
+        <div class="category-grid">
+          <a href="https://hipobuyfind.com/category-911-Shoes.html"><span>Scarpe <span lang="en">/ Shoes</span></span></a>
+          <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html"><span>Felpe e maglie <span lang="en">/ Hoodies/Sweaters</span></span></a>
+          <a href="https://hipobuyfind.com/category-913-T-Shirts.html"><span>Magliette <span lang="en">/ T-Shirts</span></span></a>
+          <a href="https://hipobuyfind.com/category-914-Jackets.html"><span>Giacche <span lang="en">/ Jackets</span></span></a>
+          <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html"><span>Pantaloni e shorts <span lang="en">/ Pants/Shorts</span></span></a>
+          <a href="https://hipobuyfind.com/category-916-Headwear.html"><span>Cappelli <span lang="en">/ Headwear</span></span></a>
+          <a href="https://hipobuyfind.com/category-917-Sets.html"><span>Completi <span lang="en">/ Sets</span></span></a>
+          <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html"><span>Intimo <span lang="en">/ Underwear/underpants</span></span></a>
+          <a href="https://hipobuyfind.com/category-919-Jersey.html"><span>Maglie sportive <span lang="en">/ Jersey</span></span></a>
+          <a href="https://hipobuyfind.com/category-920-Accessories.html"><span>Accessori <span lang="en">/ Accessories</span></span></a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Il guardaroba, ragionato</p>
+          <h1 id="page-title">KameyMall spreadsheet<span>Scegli con criterio.</span></h1>
+          <p class="intro">Una bella foto è il punto di partenza. Misure, variante e costo complessivo rendono la scelta più consapevole. Qui trovi categorie moda e un metodo pratico per trasformare la ricerca in una selezione da verificare.</p>
+          <a class="button" href="https://www.hipobuyfind.com">Esplora il catalogo HipobuyFind <span aria-hidden="true">↗</span></a>
+          <p class="micro">Guida informativa: nessun ordine o pagamento viene gestito su questa pagina.</p>
+        </div>
+        <figure class="hero-image">
+          <img
+            src="https://si.geilicdn.com/open1648936853-1234478995-27fe00000193e88e572c0a232357_900_900.jpg"
+            alt="Immagine di catalogo di sneakers Nike Air Force 1 bianche con Swoosh verde"
+            width="900"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async">
+          <figcaption>Riferimento visivo Nike Air Force 1 · Controlla modello, colore e tabella taglie nella scheda di origine.</figcaption>
+        </figure>
+      </section>
+
+      <section class="answer" aria-labelledby="in-brief">
+        <h2 id="in-brief">Un indice utile.<br>Una verifica necessaria.</h2>
+        <p>Una <strong>KameyMall spreadsheet</strong> organizza riferimenti di prodotto per facilitare la ricerca. Usala per creare una lista breve, poi conferma ogni dettaglio nella scheda aggiornata. Questa guida indirizza alle categorie di <strong>HipobuyFind</strong>: non è un foglio ufficiale, un inventario in tempo reale o una garanzia sui prodotti.</p>
+      </section>
+
+      <section class="section" aria-labelledby="visual-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Atlante visivo</p>
+            <h2 id="visual-title">Osserva il dettaglio.<br>Confronta il contesto.</h2>
+          </div>
+          <p>Scarpe, capi, cappelli e accessori richiedono controlli diversi. Questi riferimenti illustrano cosa osservare durante la ricerca.</p>
+        </div>
+
+        <div class="gallery">
+          <figure class="look">
+            <img src="https://si.geilicdn.com/open1653773437-1234478995-67c500000199851c0cd40a23b4de_800_800.jpg" alt="Immagine di catalogo di sneakers Louis Vuitton LV Trainer beige e bianche" width="800" height="800" loading="lazy" decoding="async">
+            <figcaption>
+              <h3>Louis Vuitton · Sneakers</h3>
+              <p>Confronta profilo della suola, pannelli e variante selezionata; non fermarti alla prima foto.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="look">
+            <img src="https://si.geilicdn.com/open1862809525-1234478995-07a000000193d01b44ca0aa0834c_800_800.jpg" alt="Immagine di catalogo di una giacca Nike Sportswear Tech Fleece con cappuccio" width="800" height="800" loading="lazy" decoding="async">
+            <figcaption>
+              <h3>Nike · Abbigliamento</h3>
+              <p>Verifica larghezza del petto, lunghezza delle maniche e spazio per gli strati sottostanti.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="look">
+            <img src="https://si.geilicdn.com/open1623462477-1234478995-7a8100000194c2482f090a8115b5_1200_1200.jpg" alt="Immagine di catalogo di un cappellino Gucci GG Supreme beige con fascia verde e rossa" width="1200" height="1200" loading="lazy" decoding="async">
+            <figcaption>
+              <h3>Gucci · Copricapi</h3>
+              <p>Misura la circonferenza della testa e controlla regolazione, profondità e forma della visiera.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="look">
+            <img src="https://si.geilicdn.com/open1823866485-1234478995-5451000001978c9d469b0aa043be_1200_1200.jpg" alt="Immagine di catalogo di una mini borsa rosa presentata come Hermès Kelly con charm a cavallo" width="1200" height="1200" loading="lazy" decoding="async">
+            <figcaption>
+              <h3>Hermès · Piccoli accessori</h3>
+              <p>Valuta dimensioni reali, chiusura e lunghezza della tracolla rispetto all'uso previsto.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="look">
+            <img src="https://si.geilicdn.com/open1623462477-1234478995-1d6c000001974e8de3e30a8133b0_1080_1080.jpg" alt="Immagine di catalogo di un bracciale presentato come Dior con charm dorati e perle decorative" width="1080" height="1080" loading="lazy" decoding="async">
+            <figcaption>
+              <h3>Dior · Bijoux</h3>
+              <p>Richiedi lunghezza, tipo di chiusura e composizione dichiarata, soprattutto se hai sensibilità ai metalli.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="image-note">Immagini tratte da schede di catalogo consultate su HipobuyFind. Le denominazioni riprendono i riferimenti delle inserzioni e non certificano autenticità, materiali o disponibilità. Nessuna affiliazione con i marchi mostrati.</p>
+      </section>
+
+      <section class="section journal" aria-labelledby="journal-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Guide di acquisto</p>
+            <h2 id="journal-title">Dalla foto alla scelta:<br>tre controlli prima di ordinare.</h2>
+          </div>
+          <p>Il percorso dei KameyMall finds diventa più chiaro quando separi vestibilità, informazioni del venditore e condizioni visibili.</p>
+        </div>
+
+        <article class="article-row">
+          <span class="number" aria-hidden="true">01</span>
+          <div>
+            <p class="eyebrow">Scarpe e proporzioni</p>
+            <h3>La taglia europea non racconta tutta la calzata.</h3>
+            <p>Per confrontare sneakers basse e scarpe sportive, parti dalla lunghezza del piede in centimetri. Consulta la tabella del modello: una conversione generica tra taglie EU e US può nascondere differenze importanti.</p>
+          </div>
+          <ul>
+            <li><strong>Larghezza della pianta:</strong> chiedi indicazioni sulla calzata se il piede è largo o il modello appare affusolato.</li>
+            <li><strong>Misura della soletta:</strong> verifica se il dato indica soletta interna o lunghezza del piede; non sono equivalenti.</li>
+            <li><strong>Confronto tra varianti:</strong> controlla che colore, codice e foto corrispondano all'opzione scelta.</li>
+            <li><strong>Uso quotidiano o sportivo:</strong> una forma da running non dimostra prestazioni tecniche o idoneità all'allenamento.</li>
+          </ul>
+        </article>
+
+        <article class="article-row">
+          <span class="number" aria-hidden="true">02</span>
+          <div>
+            <p class="eyebrow">Abbigliamento e misure</p>
+            <h3>Misura un capo che indossi già.</h3>
+            <p>Una guida KameyMall alle taglie è utile solo se riferita all'articolo preciso. Stendi una felpa o una giacca che ti veste bene e confronta le misure con quelle del venditore, controllando il metodo di misurazione.</p>
+          </div>
+          <ul>
+            <li><strong>Felpe oversize:</strong> confronta larghezza del petto e lunghezza del busto per distinguere volume e vestibilità.</li>
+            <li><strong>T-shirt in cotone:</strong> leggi composizione dichiarata e istruzioni di lavaggio; la foto non indica il peso del tessuto.</li>
+            <li><strong>Giacche con cappuccio:</strong> valuta spalle, maniche e spazio necessario per una maglia sottostante.</li>
+            <li><strong>Pantaloni e shorts:</strong> controlla vita, fianchi, cavallo e interno gamba; verifica l'eventuale elasticità.</li>
+            <li><strong>Completi coordinati e jersey:</strong> verifica separatamente misure della parte superiore, della parte inferiore e personalizzazioni.</li>
+          </ul>
+        </article>
+
+        <article class="article-row">
+          <span class="number" aria-hidden="true">03</span>
+          <div>
+            <p class="eyebrow">Foto e riscontri</p>
+            <h3>Le foto QC rispondono a domande precise.</h3>
+            <p>Nella ricerca di foto QC KameyMall, distingui le immagini del venditore da quelle riferite all'articolo ricevuto. Una foto storica può illustrare il modello, ma non documenta automaticamente il tuo ordine.</p>
+          </div>
+          <ul>
+            <li><strong>Variante e quantità:</strong> confronta taglia, colore, etichetta e numero di pezzi con la conferma dell'ordine.</li>
+            <li><strong>Cuciture e finiture:</strong> cerca asimmetrie evidenti, fili sciolti, macchie e componenti mancanti.</li>
+            <li><strong>Luce e colore:</strong> chiedi un'altra angolazione se ombre o riflessi rendono difficile valutare la tonalità.</li>
+            <li><strong>Cerniere e minuteria:</strong> una foto mostra l'aspetto; per il funzionamento può servire una verifica aggiuntiva.</li>
+            <li><strong>Resi e assistenza:</strong> controlla condizioni e scadenze aggiornate del servizio e del venditore prima di procedere.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section spread" aria-labelledby="planning-title">
+        <div>
+          <p class="eyebrow">Il tuo foglio di confronto</p>
+          <h2 id="planning-title">Poche colonne.<br>Informazioni che servono.</h2>
+          <p>Quando usi una KameyMall spreadsheet, annota dati che permettono di ritrovare la stessa variante. Un titolo abbreviato o uno screenshot isolato possono diventare ambigui dopo una modifica dell'inserzione.</p>
+
+          <div class="table-scroll" role="region" aria-label="Dati da annotare nel confronto" tabindex="0">
+            <table>
+              <thead>
+                <tr><th scope="col">Dato</th><th scope="col">Cosa registrare</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Riferimento</th><td>URL della scheda, identificativo dell'articolo e venditore.</td></tr>
+                <tr><th scope="row">Variante</th><td>Modello, colore, taglia e accessori inclusi.</td></tr>
+                <tr><th scope="row">Vestibilità</th><td>Misure in centimetri e metodo usato per rilevarle.</td></tr>
+                <tr><th scope="row">Budget</th><td>Prezzo della variante, valuta ed eventuali costi separati.</td></tr>
+                <tr><th scope="row">Riscontri</th><td>Data del controllo, immagini disponibili e dubbi da chiarire.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="budget" aria-labelledby="budget-title">
+          <h3 id="budget-title">Il costo arriva fino alla porta.</h3>
+          <p>Per orientarti nelle spedizioni KameyMall, separa le voci del preventivo senza assumere che il prezzo dell'articolo includa ogni spesa.</p>
+          <dl>
+            <dt>Articolo e trasporto interno</dt>
+            <dd>Conferma prezzo dell'opzione e consegna dal venditore al punto di gestione previsto.</dd>
+            <dt>Pagamento e servizi</dt>
+            <dd>Verifica cambio applicato, eventuali commissioni e servizi facoltativi selezionati.</dd>
+            <dt>Peso reale e volume</dt>
+            <dd>Controlla quale misura determina il peso addebitabile sulla rotta disponibile.</dd>
+            <dt>Imballaggio e consolidamento</dt>
+            <dd>Confronta protezione necessaria e ingombro. Unire articoli non garantisce sempre un risparmio.</dd>
+            <dt>Destinazione Italia</dt>
+            <dd>Verifica imposte applicabili, documenti, restrizioni e condizioni di consegna per il tuo ordine.</dd>
+          </dl>
+          <p>Un preventivo riferito a un altro pacco non è una promessa per il tuo.</p>
+        </aside>
+      </section>
+
+      <section class="section faq" aria-labelledby="faq-title">
+        <div class="faq-grid">
+          <div>
+            <p class="eyebrow">Risposte dirette</p>
+            <h2 id="faq-title">Prima di aprire<br>la prossima scheda.</h2>
+            <p class="faq-lead">Distingui sempre il ruolo di un indice, le informazioni della scheda prodotto e le condizioni del servizio scelto.</p>
+          </div>
+          <div>
+            <details open>
+              <summary>Che cos'è una KameyMall spreadsheet?</summary>
+              <p>È una raccolta organizzata di riferimenti e collegamenti utili alla ricerca di prodotti. Aiuta a confrontare categorie e dettagli, ma ogni informazione va verificata sulla scheda aggiornata prima di ordinare.</p>
+            </details>
+            <details>
+              <summary>Dove portano i collegamenti di questa pagina?</summary>
+              <p>Le dieci categorie aprono le rispettive sezioni di hipobuyfind.com. Gli altri collegamenti aprono https://www.hipobuyfind.com. Questa pagina non offre un accesso diretto al conto KameyMall.</p>
+            </details>
+            <details>
+              <summary>Come scelgo la taglia di scarpe e abbigliamento?</summary>
+              <p>Per le scarpe misura il piede in centimetri e consulta la tabella specifica del modello. Per i capi confronta petto, lunghezza, spalle e maniche con un indumento che ti veste bene, verificando come sono state prese le misure.</p>
+            </details>
+            <details>
+              <summary>Le foto QC garantiscono l'autenticità?</summary>
+              <p>No. Le foto QC aiutano a controllare variante, quantità e difetti visibili. Non certificano da sole autenticità, composizione dei materiali, sicurezza o durata del prodotto.</p>
+            </details>
+            <details>
+              <summary>Il prezzo dell'articolo comprende la consegna in Italia?</summary>
+              <p>Non darlo per scontato. Verifica separatamente prezzo della variante, trasporto interno, eventuali commissioni, imballaggio, spedizione internazionale e imposte applicabili. Usa un preventivo relativo al tuo pacco e alla destinazione.</p>
+            </details>
+            <details>
+              <summary>Questa guida è affiliata a KameyMall o ai marchi mostrati?</summary>
+              <p>No. È una guida indipendente e non rappresenta KameyMall, Nike, Louis Vuitton, Gucci, Hermès o Dior. I nomi identificano riferimenti di ricerca; le immagini di catalogo non costituiscono certificazioni di autenticità.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div>
+          <h2 id="closing-title">Trova il tipo di capo. Poi verifica i dettagli.</h2>
+          <p>Apri HipobuyFind e costruisci una selezione coerente con misure, utilizzo e budget.</p>
+        </div>
+        <a class="button" href="https://www.hipobuyfind.com">Vai a HipobuyFind <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>hipobuyfind.com · Taccuino di ricerca indipendente</strong></p>
+      <p>Contenuti informativi su categorie moda e verifica delle inserzioni. Nessun prezzo, sconto, giudizio dei clienti o tempo di consegna è garantito da questa pagina. Per disponibilità, condizioni e autenticità, richiedi riscontri al venditore e consulta le informazioni aggiornate del servizio utilizzato.</p>
+      <p>I marchi appartengono ai rispettivi titolari. Nessuna affiliazione ufficiale con KameyMall o con i marchi citati. © 2026 · Testi in italiano.</p>
+    </div>
+  </footer>
+</body>
+</html>
